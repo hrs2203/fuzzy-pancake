@@ -1,2 +1,8 @@
-# fuzzy-pancake
-Fake News Detection, Repository.
+# FuzzyPancake
+
+> All you need is perspective.
+
+
+
+
+
