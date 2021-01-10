@@ -1,40 +1,12 @@
-// d = {
-//     "inputQuery1": "Lorem Ipsem , Lorem Ipsem , Lorem Ipsem , Lorem Ipsem ,",
-//     "inputQuery2": "Lorem Ipsem , Lorem Ipsem , Lorem Ipsem , Lorem Ipsem ,",
-//     "comparisonMetrics": {
-//         "SemanticSimilarity": 50.0,
-//         "DoTheyAgree": true,
-//         "otherKindOfSimilarity": 60,
-//     }
-// }
-
-// outputBlock.innerHTML = generateCompareTable(responseQuery);
-
-
-function getQueryResponse(q1, q2) {
-
-    requestBody = {
-        "inputQuery1": q1,
-        "inputQuery2": q2
+sampleData = {
+    "inputQuery1": "Lorem Ipsem , Lorem Ipsem , Lorem Ipsem , Lorem Ipsem ,",
+    "inputQuery2": "Lorem Ipsem , Lorem Ipsem , Lorem Ipsem , Lorem Ipsem ,",
+    "comparisonMetrics": {
+        "SemanticSimilarity": 50.0,
+        "DoTheyAgree": true,
+        "otherKindOfSimilarity": 60,
     }
-
-    var settings = {
-        "url": "http://hrs2203.pythonanywhere.com/compareQuery",
-        "method": "POST",
-        "timeout": 0,
-        "headers": {
-            "Content-Type": "application/json"
-        },
-        "data": JSON.stringify({ "inputQuery1": q1, "inputQuery2": q2 }),
-    };
-
-    $.ajax(settings).done(function (response) {
-        console.log(response);
-        outputBlock.innerHTML = generateCompareTable(JSON(response));
-    });
-
 }
-
 
 function generateCompareTable(inputData) {
     var contentBody = '<table class="table">'
@@ -70,18 +42,24 @@ function compareClickEvent() {
 
     queryBlock2 = document.getElementById('query2');
     query2 = queryBlock2.value;
-
+    
     outputBlock = document.getElementById("outputBlock");
+    
 
-
-    if (query1.length == 0 || query2.length == 0) {
+    if (query1.length == 0 || query2.length == 0 ) {
         outputBlock.innerHTML = `<p>detected empty query.<p>`
     } else {
+
+        sampleData["inputQuery1"] = query1;
+        sampleData["inputQuery2"] = query2;
+
         // ======== informing user ===========
         outputBlock.innerHTML = `<p>Comparing Queries Please Wait...<p>`
 
-        getQueryResponse(query1, query2);
-
+        setTimeout(function () {
+            // ======== loadind response =========
+            outputBlock.innerHTML = generateCompareTable(sampleData);
+        }, 3000);
     }
 
 }
