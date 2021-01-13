@@ -1,7 +1,8 @@
 import os, pathlib, random, string, json
 
 BASE_FILE = pathlib.Path(__file__).parent.absolute().parent.absolute()
-RAW_DATA_FILE = os.path.join(BASE_FILE, "database", "raw_data")
+RAW_DATA_FILE_PATH = os.path.join(BASE_FILE, "database", "raw_data")
+PROCESSED_DATA_FILE_PATH = os.path.join(BASE_FILE, "database", "processedData")
 
 
 def generateNewFileName(destinationFile: str, fileExtention: str) -> str:
@@ -33,6 +34,24 @@ def generateNewFileName(destinationFile: str, fileExtention: str) -> str:
 
     return newFileName
 
+def saveJsonFileInProcessedFolder(jsonContent: dict) -> str:
+    """Saves JSON data in `raw_data` folder
+
+    Args:
+        jsonContent (dict): json body
+
+    Returns:
+        str: file path
+    """
+
+    newFileName = generateNewFileName(PROCESSED_DATA_FILE_PATH, "json")
+    filePath = os.path.join(PROCESSED_DATA_FILE_PATH, newFileName)
+
+    with open(filePath, "w") as fileObject:
+        json.dump(jsonContent, fileObject, indent=4)
+
+    return filePath
+
 
 def saveJsonFileInRawFolder(jsonContent: dict) -> str:
     """Saves JSON data in `raw_data` folder
@@ -44,8 +63,8 @@ def saveJsonFileInRawFolder(jsonContent: dict) -> str:
         str: file path
     """
 
-    newFileName = generateNewFileName(RAW_DATA_FILE, "json")
-    filePath = os.path.join(RAW_DATA_FILE, newFileName)
+    newFileName = generateNewFileName(RAW_DATA_FILE_PATH, "json")
+    filePath = os.path.join(RAW_DATA_FILE_PATH, newFileName)
 
     with open(filePath, "w") as fileObject:
         json.dump(jsonContent, fileObject, indent=4)

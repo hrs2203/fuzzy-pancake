@@ -25,10 +25,10 @@ class CollectData:
         return response.json()
 
 
-if __name__ == "__main__":
-    collectionObject = CollectData()
+# if __name__ == "__main__":
+#     collectionObject = CollectData()
 
-    bitcoinData = collectionObject.newsAPIRequest("tesla")
-    saveJsonFileInRawFolder(bitcoinData)
-    bitcoinData = collectionObject.newsAPIRequest("spacex")
-    saveJsonFileInRawFolder(bitcoinData)
+#     bitcoinData = collectionObject.newsAPIRequest("tesla")
+#     saveJsonFileInRawFolder(bitcoinData)
+#     bitcoinData = collectionObject.newsAPIRequest("spacex")
+#     saveJsonFileInRawFolder(bitcoinData)
