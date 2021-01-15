@@ -5,7 +5,7 @@ from saveRawData import saveJsonFileInRawFolder
 from processRawFile import NewsAPIParser
 
 if __name__ == "__main__":
-    TopicList = ["android","harry potter"]
+    TopicList = []
 
     collectionObject = CollectData()
 
