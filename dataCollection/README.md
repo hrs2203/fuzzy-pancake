@@ -1,5 +1,15 @@
 # Data Collection Engine
 
+## Storing Schema
+
+```json
+{
+    "url":"https://urlofSearch",
+    "topics": ["topic1","topic2","topic3"],
+    "body": "appropriate body"
+}
+```
+
 ## Resources of Data Collection
 
 ### REST API
