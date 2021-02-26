@@ -1,6 +1,8 @@
 # FuzzyPancake
 
-> Identifying public misinformation is a complicated and challenging task. An important part of checking the veracity of a specific claim is to evaluate the stancedifferent news sources take towards the assertion.  Automatic stance evaluation,i.e.  stance detection, would arguably facilitate the process of fact checking
+
+> Semantic Similarity between a pair of sentences.
+> The main objective Semantic Similarity is to measure the distance between the semantic meanings of a pair of words, phrases, sentences, or documents. For example, the word “car” is more similar to “bus” than it is to “cat”.
 
 ## TODO
 - [ ] Existing Methods and there drawbacks.
