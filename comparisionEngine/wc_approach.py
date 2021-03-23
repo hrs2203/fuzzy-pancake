@@ -28,19 +28,24 @@ def get_cosine(vec1, vec2):
 
 
 def text_to_vector(text):
+    # Demove all not \w characters and split
     words = WORD.findall(text)
+    # Dictionary of counter for those words
     return Counter(words)
 
 
-def wordSim():
-    text1 = "it is not pbl 123$$5 to do that"
-    text2 = "it is possible to do that"
-
+def wordSim(text1: str = "" ,text2: str = ""):
     vector1 = text_to_vector(text1)
     vector2 = text_to_vector(text2)
-
     cosine = get_cosine(vector1, vector2)
-
     return cosine
 
-print("Cosine Sim : {}".format(wordSim()))
+
+f1 = "what a fine day"
+f2 = "its nice weather"
+
+t1 = "the place looks good"
+t2 = "the place is clean"
+
+
+print("Cosine Sim : {}".format(wordSim(t1, t2)))
