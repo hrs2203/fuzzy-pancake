@@ -8,11 +8,20 @@
 
 
 # ======== Tf-Idf Sim ===========
-from comparisionEngine.cosine_similarity.tfidf_sim import TfidfSim
+# from comparisionEngine.cosine_similarity.tfidf_sim import TfidfSim
 
-compEngine = TfidfSim()
-res = compEngine.rank_documents(
+# compEngine = TfidfSim()
+# res = compEngine.rank_documents(
+#     "the earth is good",
+#     ["this is mars", "this is good place", "earth is nice", "earth is not nice"],
+# )
+# print(res)
+
+from comparisionEngine.cosine_similarity.word_vec_sim import DocSim
+
+compEngine = DocSim(verbose=True)
+similarities = compEngine.similarity_query(
     "the earth is good",
-    ["this is mars", "this is good place", "earth is nice", "earth is not nice"],
+    ["this is mars", "earth is not a good place", "earth is nice", "earth is not nice"],
 )
-print(res)
+print(similarities)

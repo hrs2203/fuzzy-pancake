@@ -4,11 +4,12 @@ Semantic document similarity using Gensim
 This class is based on the Gensim Soft Cosine Tutorial notebook:
 https://github.com/RaRe-Technologies/gensim/blob/develop/docs/notebooks/soft_cosine_tutorial.ipynb
 
+for ref
+https://github.com/hrs2203/doc-similarity/blob/master/examples.ipynb
+
 """
 
 from re import sub
-import threading
-from multiprocessing import cpu_count
 
 import gensim.downloader as api
 from gensim.utils import simple_preprocess
@@ -25,7 +26,7 @@ from gensim.models.keyedvectors import Word2VecKeyedVectors
 # download('stopwords')  # Download stopwords list.
 # nltk_stop_words = set(stopwords.words("english"))
 
-from stop_words import nltk_stop_words
+from comparisionEngine.cosine_similarity.stop_words import nltk_stop_words
 
 
 class NotReadyError(Exception):
@@ -166,26 +167,3 @@ class DocSim:
 
         else:
             raise NotReadyError("Word embedding model is not ready.")
-
-
-class DocSim_threaded(DocSim):
-    """
-    Threaded verion to load model (long running process) in background. Everything else same as standard version.
-
-    Find documents that are similar to a query string.
-    Calculated using word similarity (Soft Cosine Similarity) of word embedding vectors
-
-    Example usage:
-
-    docsim = DocSim_threaded()
-    docsim.similarity_query(query_string, documents)
-    """
-
-    def _load_model(self, model):
-        """
-        # Setup the model in a separate thread
-        """
-
-        self.thread = threading.Thread(target=self._setup_model, args=[model])
-        self.thread.setDaemon(True)
-        self.thread.start()
