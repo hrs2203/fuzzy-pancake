@@ -19,5 +19,5 @@ def create_one_index_for_sts(parsed_data):
     ]
 
 
-parsed_data = create_one_index_for_sts(read_csv_file_parsed("./sts_twitter.csv"))
-print(len(parsed_data))
+# parsed_data = create_one_index_for_sts(read_csv_file_parsed("./sts_twitter.csv"))
+# print(len(parsed_data))
