@@ -152,8 +152,8 @@ class DocSim:
                     "query_string full overlaps content of document corpus"
                 )
 
-            if self.verbose:
-                print(f"{len(corpus)} documents loaded into corpus")
+            # if self.verbose:
+            #     print(f"{len(corpus)} documents loaded into corpus")
 
             self.dictionary = Dictionary(corpus + [query])
             self.tfidf = TfidfModel(dictionary=self.dictionary)
