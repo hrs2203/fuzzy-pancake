@@ -9,7 +9,7 @@ def read_csv_file_parsed(file_path):
         file_lines = file_content.split("\n")[:-1]
         return [line.split(",") for line in file_lines]
 
-    return None
+    return []
 
 
 def create_one_index_for_sts(parsed_data):
@@ -19,6 +19,6 @@ def create_one_index_for_sts(parsed_data):
     ]
 
 
-parsed_data = create_one_index_for_sts(read_csv_file_parsed("./sts_twitter.csv"))
+parsed_data = create_one_index_for_sts(read_csv_file_parsed("./sts_twitter.txt"))
 for item in parsed_data:
     print(item)
