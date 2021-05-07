@@ -11,6 +11,16 @@ def read_csv_file_parsed(file_path):
 
     return []
 
+def read_tsv_file_parsed(file_path):
+    if os.path.isfile(file_path):
+        file_content = ""
+        with open(file_path, "r") as file_obj:
+            file_content = file_obj.read()
+        file_lines = file_content.split("\n")[:-1]
+        return [line.split("	") for line in file_lines]
+
+    return []
+
 
 def create_one_index_for_sts(parsed_data):
     return [
