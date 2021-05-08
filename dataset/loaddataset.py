@@ -24,7 +24,7 @@ def read_tsv_file_parsed(file_path):
 
 def create_one_index_for_sts(parsed_data):
     return [
-        {"score": float(item[0]) / 5, "sentence1": item[1], "sentence2": item[2]}
+        {"score": float(item[0]) / 5.0, "sentence1": item[1], "sentence2": item[2]}
         for item in parsed_data
     ]
 

@@ -84,14 +84,14 @@ class DocSim:
                 print(f"Loading word vector model: {model}")
             self.model = api.load(model)
             if self.verbose:
-                print("Model loaded")
+                print("Model loaded Succesfully")
         elif model is None:
             # Download/use default GloVe model
             if self.verbose:
                 print(f"Loading default GloVe word vector model: {self.default_model}")
             self.model = api.load(self.default_model)
             if self.verbose:
-                print("Model loaded")
+                print("Model loaded Succesfully")
         else:
             raise ValueError("Unable to load word vector model")
 
@@ -148,9 +148,12 @@ class DocSim:
             query = self.preprocess(query_string)
 
             if set(query) == set([word for document in corpus for word in document]):
-                raise ValueError(
-                    "query_string full overlaps content of document corpus"
-                )
+                # raise ValueError(
+                #     "query_string full overlaps content of document corpus"
+                # )
+                # Complete overlap between query
+                print(query, documents)
+                return 1.0
 
             # if self.verbose:
             #     print(f"{len(corpus)} documents loaded into corpus")
