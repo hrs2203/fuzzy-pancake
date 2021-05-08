@@ -21,6 +21,13 @@ def read_tsv_file_parsed(file_path):
 
     return []
 
+def data_corpus_to_train(parsed_data):
+    resp_corpus = []
+    for item in parsed_data:
+        resp_corpus.append(item[1])
+        resp_corpus.append(item[2])
+
+    return resp_corpus
 
 def create_one_index_for_sts(parsed_data):
     return [
