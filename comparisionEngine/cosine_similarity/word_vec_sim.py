@@ -152,7 +152,7 @@ class DocSim:
                 #     "query_string full overlaps content of document corpus"
                 # )
                 # Complete overlap between query
-                print(query, documents)
+                # print(query, documents)
                 return 1.0
 
             # if self.verbose:
