@@ -97,9 +97,6 @@ df+1 to avoid division by zero error
 By taking a multiplicative value of TF and IDF, we get the TF-IDF score
 > tf-idf(t, d) = tf(t, d) * log(N/(df + 1))
 
-#### How we use above
-
-
 2. Result
 
 3. Observations
@@ -109,7 +106,15 @@ By taking a multiplicative value of TF and IDF, we get the TF-IDF score
 ### Word Vector Semantic Similarity
 1. About
 
+Creating sentence representation using word embedders in vector form and comparing different sentences with cosine similarity
 
+> Word Embedders
+
+Word embeddings are vector representations of a word obtained by training a neural network on a large corpus. It has been widely used in text classification using semantic similarity.
+
+A move advanced approach is to compare documents based on how similar their words are. For example, ‘apples’ and ‘oranges’ might be regarded as more similar than ‘apples’ and ‘Jupiter’. 
+
+Utilizing the word embedder, we create a more robust vectorized representation of the sentence, which is then used for comparision using soft cosine similarity.
 
 3. Result
 
@@ -117,7 +122,6 @@ By taking a multiplicative value of TF and IDF, we get the TF-IDF score
 
 
 ### Comparision
-
 
 
 ### Future plans
@@ -134,6 +138,4 @@ On Engine side.
 
 ### References
 Thanks to the amazing research community for providing us with these research
-1. ...
-2. ...
-3. ...
+1. Jeffrey Pennington, Richard Socher, and Christopher D. Manning. 2014. Glove: Global vectors forword representation. InEmpirical Methods in Nat-ural Language Processing (EMNLP).
